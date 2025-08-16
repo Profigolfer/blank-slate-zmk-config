@@ -72,9 +72,9 @@
         base_layer {
             label = "Base";
             bindings = <
- &kp ESC    &kp Q      &kp W      &kp E       &kp R          &kp T          &kp Z            &kp U          &kp I       &kp O      &kp P         &kp BKSP
+ &kp ESC    &kp Q      &kp W      &kp E       &kp R          &kp T          &kp Y            &kp U          &kp I       &kp O      &kp P         &kp BKSP
  &kp TAB    &kp A      &kp S      &kp D       &kp F          &kp G          &kp H            &kp J          &kp K       &kp L      &kp QUOT      &kp DOT
- &kp LSHFT  &kp Y      &kp X      &kp C       &kp V          &kp B          &kp N            &kp M          &kp SEMI     &kp LBKT   &kp MINUS     &kp RET
+ &kp LSHFT  &kp Z      &kp X      &kp C       &kp V          &kp B          &kp N            &kp M          &kp SEMI     &kp LBKT   &kp MINUS     &kp RET
  &kp LCTRL  &mo SYM_L  &kp LGUI   &kp LALT    &mo NAV_L      &kp SPACE      &kp RET          &mo NUM_L      &kp LEFT    &kp UP     &kp DOWN      &kp RIGHT
             >;
         };
@@ -105,7 +105,7 @@
         sym_layer {
             label = "Sym";
             bindings = <
-&kp ESC    &kp EXCL   &kp DQT    &kp DLLR    &kp PRCNT       &kp AMPS      &kp FSLH        &kp LPAR       &kp RPAR    &kp EQUAL  &kp BKSP      &kp BKSP
+&kp ESC    &kp EXCL   &kp DQT    &kp DLLR    &kp PRCNT       &kp AMPS      &kp FSLH        &kp LPAR       &kp RPAR    &kp EQUAL  &bootloader   &kp BKSP
 &kp TAB    &kp QMARK  &trans     &kp STAR    &kp PLUS        &kp TILDE     &kp LBKT        &kp RBKT       &kp LBRC    &kp RBRC   &kp HASH      &kp RET
 &kp LSHFT  &kp UNDER  &trans     &kp COLON   &kp SEMI        &kp LT        &kp GT          &kp PIPE       &kp BSLH    &kp CARET  &kp AT        &kp UP
 &kp LCTRL  &mo SYM_L  &kp LGUI   &kp LALT    &mo NAV_L       &kp SPACE     &kp RET         &mo NUM_L      &kp LEFT    &kp UP     &kp DOWN      &kp RIGHT
