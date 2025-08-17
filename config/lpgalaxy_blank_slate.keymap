@@ -111,14 +111,14 @@
             >;
         };
 
-        // Layer 4 - Rare Symbols (RARE) - Aktiviert durch SYM + NAV
+        // Layer 4 - Rare Symbols (RARE) - Unicode Fun Zone! 🎉
         rare_layer {
             label = "Rare";
             bindings = <
-&trans     &kp RA(N2) &kp RA(N3) &kp LS(N4)  &trans          &trans        &trans          &trans         &trans      &trans       &trans        &trans
-&trans     &trans     &trans     &trans      &trans          &trans        &trans          &trans         &trans      &trans       &trans        &trans
-&trans     &trans     &trans     &trans      &trans          &trans        &trans          &trans         &trans      &trans       &trans        &trans
-&trans     &trans     &trans     &trans      &trans          &trans        &trans          &trans         &trans      &trans       &trans        &trans
+&trans     &kp RA(LS(Q)) &kp RA(LS(W)) &kp RA(LS(E)) &kp RA(LS(R)) &kp RA(LS(T)) &kp RA(LS(Y)) &kp RA(LS(U)) &kp RA(LS(I)) &kp RA(LS(O)) &kp RA(LS(P)) &trans
+&trans     &kp RA(LS(A)) &kp RA(LS(S)) &kp RA(LS(D)) &kp RA(LS(F)) &kp RA(LS(G)) &kp RA(LS(H)) &kp RA(LS(J)) &kp RA(LS(K)) &kp RA(LS(L)) &kp RA(SEMI) &trans
+&trans     &kp RA(LS(Z)) &kp RA(LS(X)) &kp RA(C)     &kp RA(V)     &kp RA(B)     &kp RA(N)     &kp RA(M)     &kp RA(COMMA) &kp RA(DOT)   &kp RA(FSLH) &trans
+&trans     &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans       &trans
             >;
         };
     };
