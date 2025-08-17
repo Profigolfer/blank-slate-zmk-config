@@ -106,7 +106,7 @@
             bindings = <
 &kp ESC    &kp LS(N1) &kp LS(N2) &kp RA(E)   &kp LS(N4)      &kp LS(N5)    &kp GRAVE       &kp LS(BSLH)   &kp LS(EQUAL) &kp LS(GRAVE) &kp LS(N3)    &kp BKSP
 &kp TAB    &kp RA(Q)  &kp LS(COMMA) &kp RA(MINUS) &kp LS(DOT) &kp LS(N6)    &kp LS(RBKT)    &kp LS(N8)     &kp LS(N9)    &kp LS(N0)    &kp RBKT      &kp RET
-&kp LSHFT  &kp LS(FSLH) &kp RA(RBKT) &kp COMMA &kp DOT       &kp NUBS      &kp LS(NUBS)    &kp RA(NUBS)   &kp LS(N7)    &kp RA(V)     &kp RA(B)     &kp UP
+&kp LSHFT  &kp LS(FSLH) &kp RA(RBKT) &kp COMMA &kp DOT       &kp NUBS      &kp LS(NUBS)    &kp RA(NUBS)   &kp LS(N7)    &kp RA(DOT)   &kp RA(MINUS) &kp UP
 &kp LCTRL  &mo SYM_L  &kp LGUI   &kp LALT    &mo NAV_L       &kp SPACE     &kp RET         &mo NUM_L      &kp LEFT      &kp UP        &kp DOWN      &kp RIGHT
             >;
         };
