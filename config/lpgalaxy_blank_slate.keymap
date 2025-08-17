@@ -18,6 +18,7 @@
 #define NAV_L 1
 #define NUM_L 2
 #define SYM_L 3
+#define RARE_L 4
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt { quick_tap_ms = <200>; };
@@ -54,16 +55,14 @@
 	};
     };
 
-// Conditional layer only when we have less thumb keys
-#ifdef TBLE_DUAL_2U
+    // Conditional layer for rare symbols (SYM + NAV)
     cond_layers {
         compatible = "zmk,conditional-layers";
-	tri {
-	    if-layers = <NUM_L NAV_L>;
-	    then-layer = <SYM_L>;
+        rare_layer {
+            if-layers = <SYM_L NAV_L>;
+            then-layer = <RARE_L>;
         };
     };
-#endif
 
     keymap {
         compatible = "zmk,keymap";
@@ -79,36 +78,47 @@
             >;
         };
 
-        // Layer 1 - Navigation & F-Tasten (NAV, mit Windows-Shortcuts) 
+        // Layer 1 - Navigation & F-Tasten (NAV) 
         nav_layer {
             label = "Nav";
             bindings = <
 &kp ESC    &kp F7     &kp F8     &kp F9      &kp F10         &kp F11       &kp F12         &kp PG_DN      &kp END     &kp DEL    &kp HOME      &kp BKSP
 &kp TAB    &kp F4     &kp F5     &kp F6      &kp UP          &kp DOWN      &kp RIGHT       &kp LEFT       &kp UP      &kp DOWN   &kp RIGHT     &kp RET
-&kp LSHFT  &kp F1     &kp F2     &kp F3      &kp C_AC_UNDO   &kp C_AC_REDO &kp LC(LS(Z))   &kp LC(LS(X))  &kp LC(LS(C)) &kp LC(LS(V)) &kp LC(LS(A)) &kp UP
+&kp LSHFT  &kp F1     &kp F2     &kp F3      &kp C_AC_UNDO   &kp C_AC_REDO &kp LC(LS(Z))   &kp LC(LS(X))  &kp LC(LS(C)) &kp LC(LS(V)) &kp LC(LS(A)) &kp RA(E)
 &kp LCTRL  &mo SYM_L  &kp LGUI   &kp LALT    &mo NAV_L       &kp SPACE     &kp RET         &mo NUM_L      &kp HOME    &kp PG_UP  &kp PG_DN     &kp END
             >;
         };
 
-        // Layer 2 - Zahlen- & Sonderzeichenlayer (NUM)
+        // Layer 2 - Zahlen & Sonderzeichen (NUM) - Mit deutschen Keycodes
         num_layer {
             label = "Num";
             bindings = <
-&kp ESC    &kp N7     &kp N8     &kp N9      &kp STAR        &kp FSLH      &kp EQUAL       &kp TILDE      &kp RBRC    &kp EXCL   &kp BKSP      &kp BKSP
-&kp TAB    &kp N4     &kp N5     &kp N6      &kp PLUS        &kp MINUS     &kp PRCNT       &kp LBRC       &kp RBRC    &kp HASH   &kp AT        &kp RET
-&kp LSHFT  &kp N1     &kp N2     &kp N3      &kp N0          &kp UNDER     &kp PIPE        &kp LT         &kp GT      &kp CARET  &kp AMPS      &kp UP
-&kp LCTRL  &mo SYM_L  &kp LGUI   &kp LALT    &mo NAV_L       &kp SPACE     &kp RET         &mo NUM_L      &kp LEFT    &kp UP     &kp DOWN      &kp RIGHT
+&kp ESC    &kp N7     &kp N8     &kp N9      &kp LS(RBKT)    &kp LS(N7)    &kp RA(RBKT)    &kp LS(FSLH)   &kp LS(N8)  &kp LS(N0)   &kp BKSP      &kp BKSP
+&kp TAB    &kp N4     &kp N5     &kp N6      &kp RBKT        &kp FSLH      &kp LS(N5)      &kp RA(N7)     &kp RA(N8)  &kp LS(N3)   &kp RA(Q)     &kp RET
+&kp LSHFT  &kp N1     &kp N2     &kp N3      &kp N0          &kp LS(FSLH)  &kp RA(NUBS)    &kp NUBS       &kp LS(NUBS) &kp GRAVE   &kp LS(EQUAL) &kp UP
+&kp LCTRL  &mo SYM_L  &kp LGUI   &kp LALT    &mo NAV_L       &kp SPACE     &kp RET         &mo NUM_L      &kp LEFT    &kp UP      &kp DOWN      &kp RIGHT
             >;
         };
 
-        // Layer 3 - Symbol-Layer (SYM)
+        // Layer 3 - Symbol-Layer (SYM) - Mit deutschen Keycodes
         sym_layer {
             label = "Sym";
             bindings = <
-&kp ESC    &kp EXCL   &kp DQT    &kp DLLR    &kp PRCNT       &kp AMPS      &kp FSLH        &kp LPAR       &kp RPAR    &kp EQUAL  &bootloader   &kp BKSP
-&kp TAB    &kp QMARK  &trans     &kp STAR    &kp PLUS        &kp TILDE     &kp LBKT        &kp RBKT       &kp LBRC    &kp RBRC   &kp HASH      &kp RET
-&kp LSHFT  &kp UNDER  &trans     &kp COLON   &kp SEMI        &kp LT        &kp GT          &kp PIPE       &kp BSLH    &kp CARET  &kp AT        &kp UP
-&kp LCTRL  &mo SYM_L  &kp LGUI   &kp LALT    &mo NAV_L       &kp SPACE     &kp RET         &mo NUM_L      &kp LEFT    &kp UP     &kp DOWN      &kp RIGHT
+&kp ESC    &kp LS(N1) &kp LS(N2) &kp LS(N4)  &kp LS(N5)      &kp LS(N6)    &kp LS(N7)      &kp LS(N8)     &kp LS(N9)  &kp LS(N0)   &bootloader   &kp BKSP
+&kp TAB    &kp LS(MINUS) &kp APOS &kp LS(RBKT) &kp RBKT       &kp RA(RBKT)  &kp RA(N7)      &kp RA(N8)     &kp RA(N9)  &kp RA(N0)   &kp LS(N3)    &kp RET
+&kp LSHFT  &kp LS(FSLH) &kp GRAVE &kp LS(DOT) &kp LS(COMMA)  &kp NUBS      &kp LS(NUBS)    &kp RA(NUBS)   &kp RA(MINUS) &kp GRAVE  &kp RA(Q)     &kp UP
+&kp LCTRL  &mo SYM_L  &kp LGUI   &kp LALT    &mo NAV_L       &kp SPACE     &kp RET         &mo NUM_L      &kp LEFT    &kp UP      &kp DOWN      &kp RIGHT
+            >;
+        };
+
+        // Layer 4 - Rare Symbols (RARE) - Aktiviert durch SYM + NAV
+        rare_layer {
+            label = "Rare";
+            bindings = <
+&trans     &kp RA(N2) &kp RA(N3) &kp LS(N4)  &trans          &trans        &trans          &trans         &trans      &trans       &trans        &trans
+&trans     &trans     &trans     &trans      &trans          &trans        &trans          &trans         &trans      &trans       &trans        &trans
+&trans     &trans     &trans     &trans      &trans          &trans        &trans          &trans         &trans      &trans       &trans        &trans
+&trans     &trans     &trans     &trans      &trans          &trans        &trans          &trans         &trans      &trans       &trans        &trans
             >;
         };
     };
