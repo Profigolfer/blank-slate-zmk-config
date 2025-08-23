@@ -83,9 +83,9 @@
             label = "Nav";
             bindings = <
 &kp ESC    &kp F7     &kp F8     &kp F9      &kp F10         &kp F11       &kp F12         &kp PG_DN      &kp END     &kp DEL    &kp HOME      &kp DEL
-&kp TAB    &kp F4     &kp F5     &kp F6      &kp UP          &kp DOWN      &kp RIGHT       &kp LEFT       &kp PSCRN   &kp INS    &kp SLCK      &kp RET
-&kp LSHFT  &kp F1     &kp F2     &kp F3      &kp C_AC_UNDO   &kp C_AC_REDO &kp LC(LS(Z))   &kp LC(LS(X))  &kp LC(LS(C)) &kp LC(LS(V)) &kp LC(LS(A)) &kp RA(E)
-&kp LCTRL  &mo SYM_L  &kp LALT   &mo NAV_L   &kp SPACE       &kp SPACE     &kp SPACE       &mo NUM_L      &kp HOME    &kp PG_UP  &kp PG_DN     &kp END
+&kp TAB    &kp F4     &kp F5     &kp F6      &kp UP          &kp DOWN      &kp RIGHT       &kp LEFT       &kp PSCRN   &kp INS    &kp SLCK      &kp COMMA
+&kp LSHFT  &kp F1     &kp F2     &kp F3      &kp C_AC_UNDO   &kp C_AC_REDO &kp LC(LS(Z))   &kp LC(LS(X))  &kp LC(LS(C)) &kp LC(LS(V)) &kp LC(LS(A)) &kp RET
+&kp LCTRL  &mo SYM_L  &kp LALT   &mo NAV_L   &kp SPACE       &kp SPACE     &kp SPACE       &mo NUM_L      &kp HOME    &kp PG_UP  &kp PG_DN     &kp RIGHT
             >;
         };
 
@@ -94,8 +94,8 @@
             label = "Num";
             bindings = <
 &kp ESC    &kp N7     &kp N8     &kp N9      &kp LS(RBKT)    &kp LS(N7)    &kp RA(RBKT)    &kp LS(N8)     &kp LS(N9)  &kp LS(N1)   &kp LS(MINUS) &kp DEL
-&kp TAB    &kp N4     &kp N5     &kp N6      &kp RBKT        &kp FSLH      &kp LS(N5)      &kp RA(N8)     &kp RA(N9)  &kp BSLH     &kp RA(Q)     &kp RET
-&kp LSHFT  &kp N1     &kp N2     &kp N3      &kp N0          &kp LS(FSLH)  &kp RA(NUBS)    &kp RA(N7)     &kp RA(N0)  &kp NUBS     &kp LS(NUBS)  &kp DOT
+&kp TAB    &kp N4     &kp N5     &kp N6      &kp RBKT        &kp FSLH      &kp LS(N5)      &kp RA(N8)     &kp RA(N9)  &kp BSLH     &kp RA(Q)     &kp COMMA
+&kp LSHFT  &kp N1     &kp N2     &kp N3      &kp N0          &kp LS(FSLH)  &kp RA(NUBS)    &kp RA(N7)     &kp RA(N0)  &kp NUBS     &kp LS(NUBS)  &kp RET
 &kp LCTRL  &mo SYM_L  &kp LALT   &mo NAV_L   &kp SPACE       &kp SPACE     &kp SPACE       &mo NUM_L      &kp LEFT    &kp UP      &kp DOWN      &kp RIGHT
             >;
         };
@@ -105,8 +105,8 @@
             label = "Sym";
             bindings = <
 &kp ESC    &kp LS(N1) &kp LS(N2) &kp RA(E)   &kp LS(N4)      &kp LS(N5)    &kp GRAVE       &kp LS(BSLH)   &kp LS(EQUAL) &kp LS(GRAVE) &kp LS(N3)    &kp DEL
-&kp TAB    &kp RA(Q)  &kp LS(COMMA) &kp RA(MINUS) &kp LS(DOT) &kp LS(N6)    &kp LS(RBKT)    &kp LS(N8)     &kp LS(N9)    &kp LS(N0)    &kp RBKT      &kp RET
-&kp LSHFT  &kp LS(FSLH) &kp RA(RBKT) &kp COMMA &kp DOT       &kp NUBS      &kp LS(NUBS)    &kp RA(NUBS)   &kp LS(N7)    &kp RA(DOT)   &kp RA(MINUS) &kp UP
+&kp TAB    &kp RA(Q)  &kp LS(COMMA) &kp RA(MINUS) &kp LS(DOT) &kp LS(N6)    &kp LS(RBKT)    &kp LS(N8)     &kp LS(N9)    &kp LS(N0)    &kp RBKT      &kp COMMA
+&kp LSHFT  &kp LS(FSLH) &kp RA(RBKT) &kp COMMA &kp DOT       &kp NUBS      &kp LS(NUBS)    &kp RA(NUBS)   &kp LS(N7)    &kp RA(DOT)   &kp RA(MINUS) &kp RET
 &kp LCTRL  &mo SYM_L  &kp LALT   &mo NAV_L   &kp SPACE       &kp SPACE     &kp SPACE       &mo NUM_L      &kp LEFT      &kp UP        &kp DOWN      &kp RIGHT
             >;
         };
@@ -115,10 +115,10 @@
         rare_layer {
             label = "Rare";
             bindings = <
-&trans     &kp RA(LS(Q)) &kp RA(LS(W)) &kp RA(LS(E)) &kp RA(LS(R)) &kp RA(LS(T)) &kp RA(LS(Y)) &kp RA(LS(U)) &kp RA(LS(I)) &kp RA(LS(O)) &kp RA(LS(P)) &trans
-&trans     &kp RA(LS(A)) &kp RA(LS(S)) &kp RA(LS(D)) &kp RA(LS(F)) &kp RA(LS(G)) &kp RA(LS(H)) &kp RA(LS(J)) &kp RA(LS(K)) &kp RA(LS(L)) &kp RA(SEMI) &trans
-&trans     &kp RA(LS(Z)) &kp RA(LS(X)) &kp RA(C)     &kp RA(V)     &kp RA(B)     &kp RA(N)     &kp RA(M)     &kp RA(COMMA) &kp RA(DOT)   &kp RA(FSLH) &trans
-&trans     &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans       &trans
+&trans     &kp RA(LS(Q)) &kp RA(LS(W)) &kp RA(LS(E)) &kp RA(LS(R)) &kp RA(LS(T)) &kp RA(LS(Y)) &kp RA(LS(U)) &kp RA(LS(I)) &kp RA(LS(O)) &kp RA(LS(P)) &kp DEL
+&trans     &kp RA(LS(A)) &kp RA(LS(S)) &kp RA(LS(D)) &kp RA(LS(F)) &kp RA(LS(G)) &kp RA(LS(H)) &kp RA(LS(J)) &kp RA(LS(K)) &kp RA(LS(L)) &kp RA(SEMI) &kp COMMA
+&trans     &kp RA(LS(Z)) &kp RA(LS(X)) &kp RA(C)     &kp RA(V)     &kp RA(B)     &kp RA(N)     &kp RA(M)     &kp RA(COMMA) &kp RA(DOT)   &kp RA(FSLH) &kp RET
+&trans     &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans       &kp RIGHT
             >;
         };
     };
