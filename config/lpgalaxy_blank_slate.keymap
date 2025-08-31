@@ -116,9 +116,9 @@ bindings = <
 rare_layer {
 label = "Rare";
 bindings = <
-&trans     &none      &none      &none       &none           &none         &kp CAPS        &kp LGUI       &kp SLCK      &none          &trans        &kp DEL
-&trans     &none      &none      &none       &none           &none         &none           &none          &none         &none          &trans        &kp COMMA
-&trans     &none      &kp RA(N2) &kp RA(N3)  &none           &none         &none           &kp RA(M)      &none         &none          &trans        &kp RET
+&trans     &none      &none      &none       &none           &none         &kp CAPS        &kp LGUI       &kp SLCK      &none          &none         &kp DEL
+&trans     &none      &none      &none       &none           &none         &none           &none          &none         &none          &none         &kp COMMA
+&trans     &none      &kp RA(N2) &kp RA(N3)  &none           &none         &none           &kp RA(M)      &none         &none          &none         &kp RET
 &kp LCTRL  &mo SYM_L  &kp LALT   &mo NAV_L   &kp SPACE       &kp SPACE     &kp SPACE       &mo NUM_L      &kp LEFT      &kp DOWN       &kp UP        &kp RIGHT
 >;
 };
