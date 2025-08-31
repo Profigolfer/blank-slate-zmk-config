@@ -15,9 +15,10 @@
 // #define TBLE_MIT     1
 // #define TBLE_DUAL_2U 1
 
-#define NAV_L 1
-#define NUM_L 2
-#define SYM_L 3
+// LAYER ORDER CHANGED: NUM=1, SYM=2 for transparency
+#define NUM_L 1
+#define SYM_L 2
+#define NAV_L 3
 #define RARE_L 4
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
@@ -38,21 +39,29 @@
     };
 
     macros {
-      ZMK_MACRO(thumbs_up,
-		wait-ms = <1>;
-		tap-ms = <5>;
-                bindings = <&kp PLUS &kp COLON &kp PLUS &kp N1 &kp COLON &kp RET>;
-		)
+        // o_O Smiley Macro for C key in SYM layer
+        smiley_macro: smiley_macro {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp O &kp LS(MINUS) &kp O>;  // o_O
+        };
+        
+        ZMK_MACRO(thumbs_up,
+            wait-ms = <1>;
+            tap-ms = <5>;
+            bindings = <&kp PLUS &kp COLON &kp PLUS &kp N1 &kp COLON &kp RET>;
+        )
     };
     
     tap_dances {
-    	shifty: shift_caps_word {
-		compatible = "zmk,behavior-tap-dance";
-		label = "TD_SHIFTY";
-		#binding-cells = <0>;
-		tapping-term-ms = <150>;
-		bindings = <&kp LSHFT>, <&caps_word>;
-	};
+        shifty: shift_caps_word {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_SHIFTY";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&kp LSHFT>, <&caps_word>;
+        };
     };
 
     // Conditional layer for rare symbols (SYM + NAV)
@@ -67,58 +76,58 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // Layer 0 - Hauptlayer (QWERTZ mit Umlauten & Pfeiltasten)
+        // Layer 0 - Base Layer (Deutsches QWERTZ mit Umlauten)
         base_layer {
             label = "Base";
             bindings = <
- &kp ESC    &kp Q      &kp W      &kp E       &kp R          &kp T          &kp Y            &kp U          &kp I       &kp O      &kp P         &kp BKSP
- &kp TAB    &kp A      &kp S      &kp D       &kp F          &kp G          &kp H            &kp J          &kp K       &kp L      &kp QUOT      &kp DOT
- &kp LSHFT  &kp Z      &kp X      &kp C       &kp V          &kp B          &kp N            &kp M          &kp SEMI     &kp LBKT   &kp MINUS     &kp RET
+ &kp ESC    &kp Q      &kp W      &kp E       &kp R          &kp T          &kp Z            &kp U          &kp I       &kp O      &kp P         &kp BKSP
+ &kp TAB    &kp A      &kp S      &kp D       &kp F          &kp G          &kp H            &kp J          &kp K       &kp L      &kp SEMI      &kp DOT
+ &kp LSHFT  &kp Y      &kp X      &kp C       &kp V          &kp B          &kp N            &kp M          &kp SQT     &kp LBKT   &kp MINUS     &kp RET
  &kp LCTRL  &mo SYM_L  &kp LALT   &mo NAV_L   &kp SPACE      &kp SPACE      &kp SPACE        &mo NUM_L      &kp LEFT    &kp DOWN   &kp UP        &kp RIGHT
             >;
         };
 
-        // Layer 1 - Navigation & F-Tasten (NAV) 
-        nav_layer {
-            label = "Nav";
-            bindings = <
-&kp ESC    &kp F7     &kp F8     &kp F9      &kp F10         &kp F11       &kp F12         &kp PG_DN      &kp END     &kp DEL    &kp HOME      &kp DEL
-&kp TAB    &kp F4     &kp F5     &kp F6      &kp PSCRN       &kp INS       &kp LEFT        &kp DOWN       &kp UP      &kp RIGHT  &kp SLCK      &kp COMMA
-&kp LSHFT  &kp F1     &kp F2     &kp F3      &kp C_AC_UNDO   &kp C_AC_REDO &kp LC(LS(Z))   &kp LC(LS(X))  &kp LC(LS(C)) &kp LC(LS(V)) &kp LC(LS(A)) &kp RET
-&kp LCTRL  &mo SYM_L  &kp LALT   &mo NAV_L   &kp SPACE       &kp SPACE     &kp SPACE       &mo NUM_L      &kp HOME    &kp PG_DN  &kp PG_UP     &kp RIGHT
-            >;
-        };
-
-        // Layer 2 - Zahlen & Sonderzeichen (NUM) - Mit horizontalen Klammer-Paaren
+        // Layer 1 - Zahlen & häufige Symbole (NUM) - Foundation Layer
         num_layer {
             label = "Num";
             bindings = <
-&kp ESC    &kp N7     &kp N8     &kp N9      &kp LS(RBKT)    &kp LS(N7)    &kp RA(RBKT)    &kp LS(N8)     &kp LS(N9)  &kp LS(N1)   &kp LS(MINUS) &kp DEL
-&kp TAB    &kp N4     &kp N5     &kp N6      &kp RBKT        &kp FSLH      &kp LS(N5)      &kp RA(N8)     &kp RA(N9)  &kp BSLH     &kp RA(Q)     &kp COMMA
-&kp LSHFT  &kp N1     &kp N2     &kp N3      &kp N0          &kp LS(FSLH)  &kp RA(NUBS)    &kp RA(N7)     &kp RA(N0)  &kp NUBS     &kp LS(NUBS)  &kp RET
-&kp LCTRL  &mo SYM_L  &kp LALT   &mo NAV_L   &kp SPACE       &kp SPACE     &kp SPACE       &mo NUM_L      &kp LEFT    &kp DOWN    &kp UP        &kp RIGHT
+ &trans     &kp N7     &kp N8     &kp N9      &kp LS(N8)     &kp FSLH       &kp LS(SQT)     &kp LS(N9)     &kp LS(N0)  &kp LS(N1) &kp COMMA     &kp DEL
+ &trans     &kp N4     &kp N5     &kp N6      &kp LS(EQUAL)  &kp MINUS      &kp EQUAL       &kp LBKT       &kp RBKT    &kp LS(N3) &kp LS(COMMA) &kp COMMA
+ &trans     &kp N1     &kp N2     &kp N3      &kp N0         &kp LS(MINUS)  &kp LS(N5)      &kp LS(LBKT)   &kp LS(RBKT) &kp LS(COMMA) &kp LS(DOT) &trans
+ &trans     &trans     &trans     &trans      &trans         &trans         &trans          &trans         &trans      &trans     &trans        &trans
             >;
         };
 
-        // Layer 3 - Symbol-Layer (SYM) - Korrigierte deutsche Keycodes
+        // Layer 2 - Symbol Layer (SYM) - Mit Transparency für geteilte Keys
         sym_layer {
             label = "Sym";
             bindings = <
-&kp ESC    &kp LS(N1) &kp LS(N2) &kp RA(E)   &kp LS(N4)      &kp LS(N5)    &kp GRAVE       &kp LS(BSLH)   &kp LS(EQUAL) &kp LS(GRAVE) &kp LS(N3)    &kp DEL
-&kp TAB    &kp RA(Q)  &kp LS(COMMA) &kp RA(MINUS) &kp LS(DOT) &kp LS(N6)    &kp LS(RBKT)    &kp LS(N8)     &kp LS(N9)    &kp LS(N0)    &kp RBKT      &kp COMMA
-&kp LSHFT  &kp LS(FSLH) &kp RA(RBKT) &kp COMMA &kp DOT       &kp NUBS      &kp LS(NUBS)    &kp RA(NUBS)   &kp LS(N7)    &kp RA(DOT)   &kp RA(MINUS) &kp RET
-&kp LCTRL  &mo SYM_L  &kp LALT   &mo NAV_L   &kp SPACE       &kp SPACE     &kp SPACE       &mo NUM_L      &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT
+ &trans     &kp LS(N3) &kp LS(GRAVE) &kp RA(E)   &trans         &trans         &kp GRAVE       &trans         &trans      &trans     &kp COMMA     &kp DEL
+ &trans     &kp RA(Q)  &kp LS(N4)    &kp RA(MINUS) &trans       &trans         &trans          &kp SQT        &kp SQT     &trans     &trans        &kp COMMA
+ &trans     &kp MINUS  &kp RA(RBKT)  &smiley_macro &kp LS(N6)   &trans         &trans          &trans         &trans      &trans     &trans        &trans
+ &trans     &trans     &trans        &trans        &trans       &trans         &trans          &trans         &trans      &trans     &trans        &trans
             >;
         };
 
-        // Layer 4 - Rare Symbols (RARE) - Unicode Fun Zone! 🎉
+        // Layer 3 - Navigation & F-Keys (NAV) 
+        nav_layer {
+            label = "Nav";
+            bindings = <
+ &trans     &kp F7     &kp F8     &kp F9      &kp F10        &kp F11        &kp F12         &none          &kp PAUSE_BREAK &kp END  &kp HOME      &kp DEL
+ &trans     &kp F4     &kp F5     &kp F6      &kp PSCRN      &none          &kp LEFT        &kp DOWN       &kp UP      &kp RIGHT  &kp PG_UP     &kp COMMA
+ &trans     &kp F1     &kp F2     &kp F3      &kp INS        &none          &none           &none          &none       &none      &kp PG_DN     &trans
+ &trans     &trans     &trans     &trans      &trans         &trans         &trans          &trans         &trans      &trans     &trans        &trans
+            >;
+        };
+
+        // Layer 4 - Rare Symbols (RARE) - Activated by SYM+NAV
         rare_layer {
             label = "Rare";
             bindings = <
-&trans     &kp RA(LS(Q)) &kp RA(LS(W)) &kp RA(LS(E)) &kp RA(LS(R)) &kp RA(LS(T)) &kp RA(LS(Y)) &kp RA(LS(U)) &kp RA(LS(I)) &kp RA(LS(O)) &kp RA(LS(P)) &kp DEL
-&trans     &kp RA(LS(A)) &kp RA(LS(S)) &kp RA(LS(D)) &kp RA(LS(F)) &kp RA(LS(G)) &kp RA(LS(H)) &kp RA(LS(J)) &kp RA(LS(K)) &kp RA(LS(L)) &kp RA(SEMI) &kp COMMA
-&trans     &kp RA(LS(Z)) &kp RA(N2) &kp RA(N3)     &kp RA(V)     &kp RA(B)     &kp RA(N)     &kp RA(M)     &kp RA(COMMA) &kp RA(DOT)   &kp RA(FSLH) &kp RET
-&trans     &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans        &trans       &kp RIGHT
+ &trans     &trans     &trans     &trans      &trans         &trans         &trans          &trans         &trans      &trans     &trans        &trans
+ &trans     &trans     &trans     &trans      &trans         &trans         &trans          &trans         &trans      &trans     &trans        &trans
+ &trans     &trans     &kp RA(N2) &kp RA(N3)  &kp RA(M)      &trans         &trans          &kp K_APP      &trans      &kp SLCK   &trans        &trans
+ &trans     &trans     &trans     &trans      &trans         &trans         &trans          &trans         &trans      &trans     &trans        &trans
             >;
         };
     };
