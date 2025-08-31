@@ -72,32 +72,32 @@ compatible = "zmk,keymap";
 base_layer {
 label = "Base";
 bindings = <
-&kp ESC    &kp Q      &kp W      &kp E       &kp R          &kp T          &kp Y            &kp U          &kp I       &kp O      &kp P         &kp BKSP
+&kp ESC    &kp Q      &kp W      &kp E       &kp R          &kp T          &kp Z            &kp U          &kp I       &kp O      &kp P         &kp BKSP
 &kp TAB    &kp A      &kp S      &kp D       &kp F          &kp G          &kp H            &kp J          &kp K       &kp L      &kp QUOT      &kp DOT
 &kp LSHFT  &kp Z      &kp X      &kp C       &kp V          &kp B          &kp N            &kp M          &kp SEMI    &kp LBKT   &kp MINUS     &kp RET
 &kp LCTRL  &mo SYM_L  &kp LALT   &mo NAV_L   &kp SPACE      &kp SPACE      &kp SPACE        &mo NUM_L      &kp LEFT    &kp DOWN   &kp UP        &kp RIGHT
 >;
 };
 
-// Layer 1 - Numbers & Sonderzeichen (NUM) - Mit horizontalen Klammer-Paaren
+// Layer 1 - Numbers & Sonderzeichen (NUM)
 num_layer {
 label = "Num";
 bindings = <
-&kp ESC    &kp N7     &kp N8     &kp N9      &kp LS(RBKT)    &kp LS(N7)    &kp RA(RBKT)    &kp LS(N8)     &kp LS(N9)  &kp LS(N1)   &kp LS(MINUS) &kp DEL
-&kp TAB    &kp N4     &kp N5     &kp N6      &kp RBKT        &kp FSLH      &kp LS(N5)      &kp RA(N8)     &kp RA(N9)  &kp BSLH     &kp RA(Q)     &kp COMMA
-&kp LSHFT  &kp N1     &kp N2     &kp N3      &kp N0          &kp LS(FSLH)  &kp RA(NUBS)    &kp RA(N7)     &kp RA(N0)  &kp NUBS     &kp LS(NUBS)  &kp RET
+&trans     &kp N7     &kp N8     &kp N9      &kp LS(RBKT)    &kp LS(N7)    &kp LS(N2)      &kp LS(N8)     &kp LS(N9)  &kp LS(N1)   &kp LS(MINUS) &kp DEL
+&trans     &kp N4     &kp N5     &kp N6      &kp LS(N1)      &kp FSLH      &kp LS(N0)      &kp RA(N8)     &kp RA(N9)  &kp BSLH     &kp LS(DOT)   &kp COMMA
+&trans     &kp N1     &kp N2     &kp N3      &kp N0          &kp LS(FSLH)  &kp LS(N5)      &kp RA(N7)     &kp RA(N0)  &kp NUBS     &kp LS(NUBS)  &trans
 &kp LCTRL  &mo SYM_L  &kp LALT   &mo NAV_L   &kp SPACE       &kp SPACE     &kp SPACE       &mo NUM_L      &kp LEFT    &kp DOWN     &kp UP       &kp RIGHT
 >;
 };
 
-// Layer 2 - Symbol-Layer (SYM) - Deutsche Keycodes
+// Layer 2 - Symbol-Layer (SYM)
 sym_layer {
 label = "Sym";
 bindings = <
-&kp ESC    &kp LS(N1) &kp LS(N2) &kp RA(E)   &kp LS(N4)      &kp LS(N5)    &kp GRAVE       &kp LS(BSLH)   &kp LS(EQUAL) &kp LS(GRAVE) &kp LS(N3)    &kp DEL
-&kp TAB    &kp RA(Q)  &kp LS(COMMA) &kp RA(MINUS) &kp LS(DOT) &kp LS(N6)    &kp LS(RBKT)    &kp LS(N8)     &kp LS(N9)    &kp LS(N0)    &kp RBKT      &kp COMMA
-&kp LSHFT  &kp LS(FSLH) &kp RA(RBKT) &kp COMMA &kp DOT       &kp NUBS      &kp LS(NUBS)    &kp RA(NUBS)   &kp LS(N7)    &kp RA(DOT)   &kp RA(MINUS) &kp RET
-&kp LCTRL  &mo SYM_L  &kp LALT   &mo NAV_L   &kp SPACE       &kp SPACE     &kp SPACE       &mo NUM_L      &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT
+&trans     &kp LS(N3) &kp LS(GRAVE) &kp RA(E)   &kp LS(RBKT)    &kp LS(N7)    &kp GRAVE       &kp LS(N8)     &kp LS(N9)    &kp LS(N1)    &kp LS(MINUS) &kp DEL
+&trans     &kp RA(Q)  &kp LS(N4)    &kp RA(MINUS) &kp LS(N1)    &kp FSLH      &kp LS(N0)      &kp LS(BSLH)   &kp LS(EQUAL) &trans        &kp LS(DOT)   &kp COMMA
+&trans     &kp RA(RBKT) &kp RA(N1)  &kp LS(N6)  &trans          &trans        &trans          &trans         &kp NUBS      &kp LS(NUBS)  &trans        &trans
+&kp LCTRL  &mo SYM_L  &kp LALT      &mo NAV_L   &kp SPACE       &kp SPACE     &kp SPACE       &mo NUM_L      &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT
 >;
 };
 
@@ -105,10 +105,10 @@ bindings = <
 nav_layer {
 label = "Nav";
 bindings = <
-&kp ESC    &kp F7     &kp F8     &kp F9      &kp F10         &kp F11       &kp F12         &kp PG_DN      &kp END     &kp DEL    &kp HOME      &kp DEL
-&kp TAB    &kp F4     &kp F5     &kp F6      &kp PSCRN       &kp INS       &kp LEFT        &kp DOWN       &kp UP      &kp RIGHT  &kp SLCK      &kp COMMA
-&kp LSHFT  &kp F1     &kp F2     &kp F3      &kp C_AC_UNDO   &kp C_AC_REDO &kp LC(LS(Z))   &kp LC(LS(X))  &kp LC(LS(C)) &kp LC(LS(V)) &kp LC(LS(A)) &kp RET
-&kp LCTRL  &mo SYM_L  &kp LALT   &mo NAV_L   &kp SPACE       &kp SPACE     &kp SPACE       &mo NUM_L      &kp HOME    &kp PG_DN  &kp PG_UP     &kp RIGHT
+&trans     &kp F7     &kp F8     &kp F9      &kp F10         &kp F11       &kp F12         &trans         &kp PAUSE_BREAK &kp END    &kp HOME      &kp DEL
+&trans     &kp F4     &kp F5     &kp F6      &kp PSCRN       &trans        &kp LEFT        &kp DOWN       &kp UP          &kp RIGHT  &kp PG_UP     &kp COMMA
+&trans     &kp F1     &kp F2     &kp F3      &kp INS         &trans        &trans          &trans         &trans          &trans     &kp PG_DN     &trans
+&kp LCTRL  &mo SYM_L  &kp LALT   &mo NAV_L   &kp SPACE       &kp SPACE     &kp SPACE       &mo NUM_L      &kp LEFT        &kp DOWN   &kp UP        &kp RIGHT
 >;
 };
 
